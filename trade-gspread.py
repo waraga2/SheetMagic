@@ -17,7 +17,7 @@ HEADER_MAPPING = {
     "Max Consecutive Wins": "Consec. Wins",
     "Ratio Avg Win/Loss": "Win:Loss Ratio",
     "Wins": "Winrate %",
-    "Overall Time": "Overall Time",
+    "Time Playing": "Overall Time",
     "Avg Profit Per Trade": "Profit / Trade",
     "Comment": "Comment"
 }
