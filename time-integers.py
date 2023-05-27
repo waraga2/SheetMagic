@@ -5,7 +5,7 @@ import csv
 
 # Define the name of the CSV file and Google Sheets file
 CSV_FILE = "tradedata.csv"
-SHEETS_FILE = "trading sheet"
+SHEETS_FILE = "Trading Sheet"
 
 # Define the mapping of CSV headers to sheets columns
 HEADER_MAPPING = {
