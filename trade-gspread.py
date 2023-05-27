@@ -10,7 +10,6 @@ SHEETS_FILE = "trading sheet"
 # Define the mapping of CSV headers to sheets columns
 HEADER_MAPPING = {
     "Market type": "Market",
-    "Profit": "Realized Profit",
     "Trades": "Trades",
     "Stake": "Stake",
     "Max Consecutive Losses": "Consec. Loss",
@@ -142,7 +141,7 @@ def cell_cleaner():
     worksheet_name = 'Rise Fall | Auto'
 
     # Specify the column names to delete the last row cells
-    column_names = ['Target Profit', 'Stop Loss', 'Net Gross Risk', 'Trade / Time']
+    column_names = ['Target Profit', 'Stop Loss', 'Net Gross Risk', 'Trade / Time','Realized Profit']
 
     # Open the worksheet
     sheet = client.open(sheet_name).worksheet(worksheet_name)
@@ -163,3 +162,4 @@ if __name__ == '__main__':
     print("Data appended to Google Sheet successfully.")
 
     cell_cleaner()
+
