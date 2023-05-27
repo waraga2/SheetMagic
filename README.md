@@ -4,17 +4,7 @@ SheetMagic: A Python script that magically appends data from a CSV file to a Goo
 
 #About This Project
 
-This Python script reads data from a CSV file and appends it to a Google Sheet. However, the script is not optimized and there are several improvements that can be made.
-
-Improvements are needed for the script by implementing the following features(Help me implement them):
-
-==>  Parse the CSV file correctly: The script currently copies all values after the colons and pastes them into the Google Sheet, (see the tradedata.csv). However, some values may contain special characters or units that should be removed before appending to the sheet.
-
-==>  Match the CSV headers to the Google Sheet columns: The headers in the CSV file do not match the order of the columns in the Google Sheet(link at the bottom), this a feature that is key, beacuse the script is eventually going to be reading data from different types of csv files, and so the arrangement of the headers in the csv file versus the names of the google sheet columns should not affect the python code. The script should be updated to locate the correct columns in the sheet and append the values in the appropriate cells.
-
-==>  Ignore unnecessary data: Not all values in the CSV file should be appended to the Google Sheet. The script should be updated to only append the necessary values since the csv file may contain unimportant data.
-
-==>  Error handling: The script should be able to handle errors such as incorrect file paths or missing columns in the Google Sheet.
+This Python script reads data from a CSV file and appends it to a Google Sheet.
 
 
 #Installation
