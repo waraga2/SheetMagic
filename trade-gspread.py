@@ -75,21 +75,6 @@ def transform_value(key, value):
     else:
         return value
 
-def convert_time_to_minutes(time_str):
-    # Extract hours, minutes, and seconds using regular expressions
-    time_parts = re.findall(r'\d+', time_str)
-    hours = int(time_parts[0])
-    minutes = int(time_parts[1])
-    seconds = int(time_parts[2])
-
-    # Convert time to minutes
-    total_minutes = hours * 60 + minutes + (1 if seconds >= 30 else 0)
-
-    # Format the time as HH:MM:SS
-    formatted_time = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
-
-    return total_minutes, formatted_time
-
 def append_to_sheets():
     extracted_data = extract_data()
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
@@ -118,48 +103,38 @@ def append_to_sheets():
         # Get the cell value
         cell_value = sheet.acell(cell_address).value
 
-        # Convert the time value to minutes and format it as HH:MM:SS
-        total_minutes, formatted_time = convert_time_to_minutes(cell_value)
+        # Extract hours, minutes, and seconds using regular expressions
+        time_parts = re.findall(r'\d+', cell_value)
+        hours = int(time_parts[0])
+        minutes = int(time_parts[1])
+        seconds = int(time_parts[2])
+
+        # Convert time to minutes
+        total_minutes = hours * 60 + minutes + (1 if seconds >= 30 else 0)
 
         # Update the cell with the converted value
-        sheet.update_acell(cell_address, formatted_time)
+        sheet.update_acell(cell_address, str(total_minutes))
 
         # Output success message
         print('Cell', cell_address, 'updated successfully.')
-        print('Converted time:', formatted_time)
 
     except gspread.exceptions.APIError as e:
         print('Error updating cell:', str(e))
 
-def cell_cleaner():
-    # Set up Google Sheets API credentials
-    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-    credentials = ServiceAccountCredentials.from_json_keyfile_name('/home/jesse/Documents/Demo Trades/my-trading-project-384611-98e812573160.json', scope)
-    client = gspread.authorize(credentials)
+# Call append_to_sheets function
+append_to_sheets()
 
-    # Specify the Google Sheet details
-    sheet_name = 'trading sheet'
-    worksheet_name = 'Rise Fall | Auto'
+print("Data appended to Google Sheet successfully.")
 
-    # Specify the column names to delete the last row cells
-    column_names = ['Target Profit', 'Stop Loss', 'Net Gross Risk', 'Trade / Time']
-
-    # Open the worksheet
-    sheet = client.open(sheet_name).worksheet(worksheet_name)
-
-    # Get the last row number
-    last_row = len(sheet.get_all_values())
-
-    # Iterate through the specified columns
-    for column_name in column_names:
-        column = sheet.find(column_name)
-
-        # Delete the last row cell in the column
-        sheet.update_cell(last_row, column.col, "")
-
-if __name__ == '__main__':
-    append_to_sheets()
-
-    print("Data appended to Google Sheet successfully.")
-
-    cell_cleaner()
+# Perform deletion operation
+scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+credentials = ServiceAccountCredentials.from_json_keyfile_name('/home/jesse/Documents/Demo Trades/my-trading-project-384611-98e812573160.json', scope)
+client = gspread.authorize(credentials)
+sheet_name = 'trading sheet'
+worksheet_name = 'Rise'
+column_names = ['Target Profit', 'Stop Loss', 'Net Gross Risk', 'Trade / Time']
+sheet = client.open(sheet_name).worksheet(worksheet_name)
+last_row = len(sheet.get_all_values())
+for column_name in column_names:
+    column = sheet.find(column_name)
+    sheet.update_cell(last_row, column.col, "")
