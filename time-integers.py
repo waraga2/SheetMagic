@@ -10,7 +10,6 @@ SHEETS_FILE = "trading sheet"
 # Define the mapping of CSV headers to sheets columns
 HEADER_MAPPING = {
     "Market type": "Market",
-    "Profit": "Realized Profit",
     "Trades": "Trades",
     "Stake": "Stake",
     "Max Consecutive Losses": "Consec. Loss",
@@ -54,7 +53,7 @@ def transform_value(key, value):
             return float(value)
         except ValueError:
             return value
-    elif key == "Stake" or key == "Profit" or key == "Ratio Avg Win/Loss" or key == "Comment" or key == "Market type":
+    elif key == "Stake" or key == "Ratio Avg Win/Loss" or key == "Comment" or key == "Market type":
         try:
             return float(value)
         except ValueError:
@@ -131,8 +130,8 @@ scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/au
 credentials = ServiceAccountCredentials.from_json_keyfile_name('/home/jesse/Documents/Demo Trades/my-trading-project-384611-98e812573160.json', scope)
 client = gspread.authorize(credentials)
 sheet_name = 'trading sheet'
-worksheet_name = 'Rise'
-column_names = ['Target Profit', 'Stop Loss', 'Net Gross Risk', 'Trade / Time']
+worksheet_name = 'Rise Fall | Auto'
+column_names = ['Target Profit', 'Stop Loss', 'Net Gross Risk', 'Trade / Time', 'Realized Profit']
 sheet = client.open(sheet_name).worksheet(worksheet_name)
 last_row = len(sheet.get_all_values())
 for column_name in column_names:
