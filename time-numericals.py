@@ -53,7 +53,7 @@ def transform_value(key, value):
             return float(value)
         except ValueError:
             return value
-    elif key == "Stake" or key == "Profit" or key == "Ratio Avg Win/Loss" or key == "Comment" or key == "Market type":
+    elif key == "Stake" or key == "Ratio Avg Win/Loss" or key == "Comment" or key == "Market type":
         try:
             return float(value)
         except ValueError:
@@ -162,4 +162,3 @@ if __name__ == '__main__':
     print("Data appended to Google Sheet successfully.")
 
     cell_cleaner()
-
