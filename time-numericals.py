@@ -92,7 +92,7 @@ def convert_time_to_minutes(time_str):
 def append_to_sheets():
     extracted_data = extract_data()
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-    creds = ServiceAccountCredentials.from_json_keyfile_name('/home/jesse/Documents/Demo Trades/my-trading-project-384611-98e812573160.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name('my-trading-project-384611-98e812573160.json', scope)
     client = gspread.authorize(creds)
     sheet = client.open(SHEETS_FILE).sheet1
 
@@ -133,7 +133,7 @@ def append_to_sheets():
 def cell_cleaner():
     # Set up Google Sheets API credentials
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-    credentials = ServiceAccountCredentials.from_json_keyfile_name('/home/jesse/Documents/Demo Trades/my-trading-project-384611-98e812573160.json', scope)
+    credentials = ServiceAccountCredentials.from_json_keyfile_name('my-trading-project-384611-98e812573160.json', scope)
     client = gspread.authorize(credentials)
 
     # Specify the Google Sheet details
