@@ -143,9 +143,9 @@ def cell_cleaner(sheet_name, worksheet_name):
 
 if __name__ == '__main__':
     csv_file = "tradedata.csv"
-    sheet_name = "trading sheet"
+    sheet_name = "Trading Sheet"
     worksheet_name = "Rise Fall | Fast Profit"
 
-    json_keyfile_name = "/home/jesse/Documents/Demo Trades/my-trading-project-384611-98e812573160.json"
+    json_keyfile_name = "my-trading-project-384611-98e812573160.json"
     append_to_sheets(csv_file, sheet_name, worksheet_name)
     cell_cleaner(sheet_name, worksheet_name)
