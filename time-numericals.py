@@ -84,7 +84,7 @@ def convert_time_to_minutes(time_str):
 def append_to_sheets(csv_file, sheet_name, worksheet_name):
     extracted_data = extract_data(csv_file, sheet_name, worksheet_name)
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-    creds = ServiceAccountCredentials.from_json_keyfile_name('/home/jesse/Documents/Demo Trades/my-trading-project-384611-98e812573160.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name('my-trading-project-384611-98e812573160.json', scope)
     client = gspread.authorize(creds)
     sheet = client.open(sheet_name).worksheet(worksheet_name)
 
@@ -128,7 +128,7 @@ def append_to_sheets(csv_file, sheet_name, worksheet_name):
 
 def cell_cleaner(sheet_name, worksheet_name):
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-    credentials = ServiceAccountCredentials.from_json_keyfile_name('/home/jesse/Documents/Demo Trades/my-trading-project-384611-98e812573160.json', scope)
+    credentials = ServiceAccountCredentials.from_json_keyfile_name('my-trading-project-384611-98e812573160.json', scope)
     client = gspread.authorize(credentials)
 
     sheet = client.open(sheet_name).worksheet(worksheet_name)
