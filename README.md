@@ -1,5 +1,5 @@
 # SheetMagic
-SheetMagic is a Python script that enables you to magically append data from a CSV file to a Google Sheets document.
+SheetMagic is a Python script that enables you, to magically append data, from a CSV file to a Google Sheets document.
 
 
 #About This Project
