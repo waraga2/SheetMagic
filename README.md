@@ -1,33 +1,36 @@
 # SheetMagic
-SheetMagic: A Python script that magically appends data from a CSV file to a Google Sheets document.
+SheetMagic is a Python script that enables you to magically append data from a CSV file to a Google Sheets document.
 
 
 #About This Project
 
-This Python script reads data from a CSV file and appends it to a Google Sheet.
-
+This Python script is designed to read data from a CSV file and append it to a Google Sheet effortlessly.
 
 #Installation
 
-This project can be run by installing a few pip dependencies by running the following commands.
+To run this project, you need to install the required dependencies using pip. Run the following command:
 
 pip install gspread oauth2client
 
-Then git clone this repo.
+After installing the dependencies, clone this repository to your local machine.
 
-Download your own json key file from google cloud console by following these steps laid out in the following article (its quite lengthy to have it all here), start reading the part where it says "Create a Json Key File" to save yourself some time==> 
+Next, you need to obtain a JSON key file from the Google Cloud Console. Follow the steps outlined in this article here to download your own JSON key file. Skip to the section titled "Create a JSON Key File" for instructions on obtaining the key file.
 
 https://www.analyticsvidhya.com/blog/2020/07/read-and-update-google-spreadsheets-with-python/
 
-Alternatively, you could use my json key file provided in this repo, for demonstration purposes only. I have provided you with an excellent google sheet, if you run the python script you'll directly be appending data to that spreadsheet. And you'll see data being appended there. If you want to utilise this python script on your own projects, which is why i beleive you're here. You should make a copy of the spreadsheet provided. Rename the copy of that spreadsheet. And then in the python script specify you worksheet name, the sheet file name, and edit the json keyfile path and place your own json keyfile path there (Hopefully it wasn't much of hustle to obtain your keyfile as demonstrated in the article provided). And DO NOT DELETE THE FIRST OR THE SECOND ROW of the sheetfile, you a can only edit the figures in the SECOND row. However be cautious when editing the SECOND ROW, there are array formulas in column C, D, H, I and, P these help in computing results for those respective columns. So if you wanted to edit those array formulas for those columns in order to fit your needs, you need to take that array formula and paste it into ChatGPT and ask it to make it compute in the way you want. For example the array formula for that calculates the Target Profit multiplies the stake by 3, you can easily edit the 3 out and put in the number you want so that it corresponds to the Target Profit you want. Also make sure you populate the tradedata.csv accordingly. You can just copy and paste trade data from the Auto Trader Web, (and obviously this script is made holistically for this very purpose). Once you've copied the data generated from a single run, paste it below the "Comment" section in the tradedata.csv file. Save the CSV file, and then run the time-numericals.py script. All data in the CSV file will be appended to sheet file. Voila!
+Alternatively, for demonstration purposes, you can use the JSON key file provided in this repository. By running the Python script, you will directly append data to the provided Google Sheet. If you intend to use this script for your own projects, make a copy of the provided spreadsheet, rename it, and specify the worksheet name and sheet file name in the Python script. Additionally, update the path of the JSON key file with your own file path (assuming you obtained your own key file as described in the aforementioned article).
 
-Again, be careful don't edit the names of the columns in the First Row, since you'd be required to also make the same changes in the python script. Data in the Second  Row can be edited out, but you have to make sure you're careful with the array formulas. All the rest of the rows from the third row and on, can be deleted and be messed around however you wish. the The script takes around 50 secs to fully append all the data to a given row, so give it some allowance when running.
- 
+Important: Do not delete the first or second row of the sheet file. You can only edit the figures in the second row. Exercise caution when modifying the second row since there are array formulas in columns C, D, H, I, and P that compute results for those respective columns. If you need to edit these array formulas, copy the formula and ask ChatGPT to compute it according to your requirements. For example, the array formula that calculates the Target Profit multiplies the stake by 3. You can modify the number to correspond to your desired Target Profit.
 
-To run the script with the following command:
+Ensure that you populate the tradedata.csv file correctly. You can copy and paste trade data from the Auto Trader Web (as this script is specifically designed for this purpose). After copying the data generated from a single run, paste it below the "Comment" section in the tradedata.csv file. Save the CSV file and then execute the time-numericals.py script. All data in the CSV file will be appended to the sheet file. Voila!
+
+Again, be careful not to edit the names of the columns in the first row, as you would need to make the corresponding changes in the Python script as well. The data in the second row can be modified, but exercise caution with the array formulas. Rows from the third row onwards can be deleted or modified as desired. The script takes approximately 50 seconds to fully append all the data to the specified row, so please allow sufficient time when running it.
+
+# To execute the script, use the following command:
 
 python time-numericals.py
 
-You should see data being appended in the following google sheet if you've not put in your own json key file path or edited the script for your own personal use. Enjoy!
+If you have not provided your own JSON key file path or made any changes to the script for your personal use, you should see the data being appended to the following Google Sheet. Enjoy!
 
+#Google Sheet Link
 https://docs.google.com/spreadsheets/d/1yHzn560nbGmKAqGGUKkTMPu0Fuj-jnfJBIkz-V0N8zM/edit#gid=0
