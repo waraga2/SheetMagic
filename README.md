@@ -28,7 +28,7 @@ Again, be careful not to edit the names of the columns in the first row, as you 
 
 # To execute the script, use the following command:
 
-python time-numericals.py
+python sheet-magic.py
 
 If you have not provided your own JSON key file path or made any changes to the script for your personal use, you should see the data being appended to the following Google Sheet. Enjoy!
 
