@@ -34,3 +34,11 @@ If you have not provided your own JSON key file path or made any changes to the 
 
 #Google Sheet Link
 https://docs.google.com/spreadsheets/d/1yHzn560nbGmKAqGGUKkTMPu0Fuj-jnfJBIkz-V0N8zM/edit#gid=0
+
+
+Support Me
+
+Tremendous efforts and long hours of sleepless nights go into making code. I have more projects I'm working on to be released soom! Nothing can encourage me more than a warm pizza, as i scratch my head when implementing the code. Thank you for your support
+
+[![Support Me](https://www.buymeacoffee.com/assets/img/bmc-meta-new/favicon.png)](https://www.buymeacoffee.com/jessealex2X)
+
